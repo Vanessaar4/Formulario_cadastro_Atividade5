@@ -3,7 +3,7 @@ var cont = 0;
 
 function adicionaLinha(idTabela) {
     var f = document.getElementById("formDD");
-    if(f.nome.length > 0 && f.matricula.length == 0 && f.Cpf.length == 0 && f.Telefone.length == 0){    
+    if(f.nome.value != "" && f.matricula.value != "" && f.Cpf.value != "" && f.Telefone.value != ""){    
         addArray();
         if(verifDados() == false){
             var tb = document.getElementById(idTabela);
