@@ -13,9 +13,6 @@ function adicionaLinha(idTabela) {
         "</td><td>" + obj[cont].Telefone;
         cont++;
         document.getElementById("formDD").reset();
-    } else {
-        obj.pop();
-        alert("MATRICULA INFORMADA JÁ CADASTRADA NO SISTEMA!!!");
     }
 }
 
@@ -35,6 +32,13 @@ function verifDados(){
     if(obj.length > 1){
         for(i=0;i<obj.length-1;i++){
             if(obj[i].matricula == obj[obj.length-1].matricula){
+                obj.pop();
+                alert("MATRICULA INFORMADA JÁ CADASTRADA NO SISTEMA!!!");
+                return true;
+            }
+            if(obj[i].Cpf == obj[obj.length-1].Cpf){
+                obj.pop();
+                alert("CPF INFORMADO JÁ CADASTRADO NO SISTEMA!!");
                 return true;
             }
         }
