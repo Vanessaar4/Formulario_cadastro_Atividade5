@@ -7,7 +7,7 @@ function adicionaLinha(idTabela) {
         var tb = document.getElementById(idTabela);
         var linha = tb.insertRow(cont+1);
         linha.innerHTML = "<td>" + obj[cont].nome + 
-        "</td><td>" + obj[cont].dataNasc + 
+        "</td><td>" + formatDT() + 
         "</td><td>" + obj[cont].matricula + 
         "</td><td>" + obj[cont].Cpf + 
         "</td><td>" + obj[cont].Telefone;
@@ -23,7 +23,7 @@ function addArray(){
     var f = document.getElementById("formDD");
     obj.push({
         nome: f.nome.value,
-        dataNasc: f.dataNasc.value,
+        dataNasc: formatDT(),
         matricula: f.matricula.value,
         Cpf: f.Cpf.value,
         Telefone: f.Telefone.value
@@ -66,6 +66,12 @@ function mascara_tel(){
 	if(num.value.length < 14){
         num.value = num.value.replace(/(\d{4})(\d)/,"$1-$2");//Número com 8 dígitos. Formato: (99) 9999-9999
     } else {
-        num.value = num.value.replace(/(\d{5})(\d)/,"$1-$2");//]número com 9 dígitos. Formato: (99) 99999-9999
+        num.value = num.value.replace(/(\d{5})(\d)/,"$1-$2");//Número com 9 dígitos. Formato: (99) 99999-9999
     }
+}
+
+function formatDT(){
+    var t = document.getElementById("data").value;
+    var aux = t.split("-");
+    return aux[2] + "/" + aux[1] + "/" + aux[0];
 }
