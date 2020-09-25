@@ -58,3 +58,14 @@ function mascara_cpf(){
        
     }
 }
+
+function mascara_tel(){
+    var num = document.getElementById("tel");
+    num.value = num.value.replace(/\D/g, "");
+    num.value = num.value.replace(/^(\d\d)(\d)/g,"($1) $2");//Coloca parênteses em volta dos dois primeiros dígitos
+	if(num.value.length < 14){
+        num.value = num.value.replace(/(\d{4})(\d)/,"$1-$2");//Número com 8 dígitos. Formato: (99) 9999-9999
+    } else {
+        num.value = num.value.replace(/(\d{5})(\d)/,"$1-$2");//]número com 9 dígitos. Formato: (99) 99999-9999
+    }
+}

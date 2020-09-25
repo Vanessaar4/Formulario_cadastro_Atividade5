@@ -12,10 +12,10 @@
 
                 Nome: <input type="text" name="nome"/>
                 Data de Nascimento: <input type="date" name="dataNasc"/>
-                Matricula: <input type="number" name="matricula"  />
-                CPF: <input type="text" name="Cpf" maxlength="14"/>
-                Telefone: <input type="text" name="Telefone" maxlength="11"/>
-                <button  type="button"  onclick="adicionaLinha('tab')">botão</button>
+                Matricula: <input type="number" name="matricula" autocomplete="off"/>
+                CPF: <input id = "cpf" type="text" name="Cpf" maxlength="14" onkeyup="mascara_cpf()" autocomplete="off"/>
+                Telefone: <input id = "tel" type="text" name="Telefone" maxlength="15" onkeyup="mascara_tel()" autocomplete="off"/>
+                <button  type="button"  onclick="adicionaLinha('tab')">Cadastrar</button>
             </form>
             <div>
                 <table id="tab">
