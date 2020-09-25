@@ -2,17 +2,22 @@ var obj = new Array();
 var cont = 0;
 
 function adicionaLinha(idTabela) {
-    addArray();
-    if(verifDados() == false){
-        var tb = document.getElementById(idTabela);
-        var linha = tb.insertRow(cont+1);
-        linha.innerHTML = "<td>" + obj[cont].nome + 
-        "</td><td>" + formatDT() + 
-        "</td><td>" + obj[cont].matricula + 
-        "</td><td>" + obj[cont].Cpf + 
-        "</td><td>" + obj[cont].Telefone;
-        cont++;
-        document.getElementById("formDD").reset();
+    var f = document.getElementById("formDD");
+    if(f.nome.length > 0 && f.matricula.length == 0 && f.Cpf.length == 0 && f.Telefone.length == 0){    
+        addArray();
+        if(verifDados() == false){
+            var tb = document.getElementById(idTabela);
+            var linha = tb.insertRow(cont+1);
+            linha.innerHTML = "<td>" + obj[cont].nome + 
+            "</td><td>" + formatDT() + 
+            "</td><td>" + obj[cont].matricula + 
+            "</td><td>" + obj[cont].Cpf + 
+            "</td><td>" + obj[cont].Telefone;
+            cont++;
+            document.getElementById("formDD").reset();
+        }
+    } else {
+        alert("TODOS OS CAMPOS PRECISAM SER PREENCHIDOS!!!");
     }
 }
 
